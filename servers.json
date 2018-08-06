@@ -1,0 +1,16 @@
+{
+    "email": "DepOps@company.com",
+    "servers": {
+        "jorgecw7": {
+            "name": "jorgecw7",
+            "protocol": "http",
+            "host": "jorgecw7.meta4.com",
+            "port": "13020",
+            "webserver": "sse_generico/generico_login.jsp",
+            "appserver": "ssco_menu/plco_login_tech_control.jsp",
+            "user": "USER",
+            "pass": "USER_PASS"
+        }
+    }
+}
+
