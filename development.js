@@ -30,7 +30,7 @@ function checkWebServer(server) {
 
     var url = getBaseUrl(server) + server.webserver;
 
-    https
+    var request = https
         .get(url, resp => {
             let data = "";
 
@@ -52,6 +52,14 @@ function checkWebServer(server) {
             console.log(errorMessage + url + " " + err.message);
             sendMail(errorMessage + server.name, body);
         });
+        
+    request.on('socket', (socket) => {
+        socket.setTimeout(15000);
+        socket.on('timeout', function () {
+            request.abort();
+            //console.log("Timeout " + url);
+        });
+    });
 }
 
 function getBaseUrl(server) {
@@ -101,7 +109,8 @@ function checkAppServer(server) {
         url += "&pass=" + server.pass;
         url += "&host=" + server.host;
         url += "&port=" + server.port;
-        https
+
+        var request = https
             .get(url, resp => {
                 let data = "";
 
@@ -147,6 +156,13 @@ function checkAppServer(server) {
                 console.log(errorMessage + url + " " + err.message);
                 sendMail(errorMessage + server.name, body);
             });
+
+        request.on('socket', (socket) => {
+            socket.setTimeout(15000);
+            socket.on('timeout', function () {
+                request.abort();
+            });
+        });
     }
 }
 
