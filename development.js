@@ -46,7 +46,7 @@ function checkWebServer(server) {
             });
         })
         .on("error", err => {
-            var body = "Erro on: " + url;
+            var body = "Error on: " + url;
             body += "\n" + "\nDescription: " + err.message;
 
             console.log(errorMessage + url + " " + err.message);
