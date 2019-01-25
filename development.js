@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 
+const socketTimeout = 30000;
 var configuration = getConfiguration();
 
 checkWebServers();
@@ -54,7 +55,7 @@ function checkWebServer(server) {
         });
         
     request.on('socket', (socket) => {
-        socket.setTimeout(15000);
+        socket.setTimeout(socketTimeout);
         socket.on('timeout', function () {
             request.abort();
             //console.log("Timeout " + url);
@@ -158,7 +159,7 @@ function checkAppServer(server) {
             });
 
         request.on('socket', (socket) => {
-            socket.setTimeout(15000);
+            socket.setTimeout(socketTimeout);
             socket.on('timeout', function () {
                 request.abort();
             });
