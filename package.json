@@ -1,0 +1,24 @@
+{
+  "name": "check-servers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "development.js",
+  "dependencies": {
+    "nodemailer": "^4.6.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node development.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorcama/check-servers.git"
+  },
+  "author": "Jorge Cano Martín",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jorcama/check-servers/issues"
+  },
+  "homepage": "https://github.com/jorcama/check-servers#readme"
+}
